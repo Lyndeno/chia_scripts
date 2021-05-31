@@ -10,5 +10,5 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 for plotjob in $(eval echo {0..$(($JOBS-1))})
 do
     jobdelay=$(($DELAY*$plotjob))
-    pueue add --delay $(echo $jobdelay's') "$SCRIPT_DIR/plot.sh $plotjob"
+    pueue add -g chia --delay $(echo $jobdelay's') "$SCRIPT_DIR/plot.sh $plotjob"
 done
